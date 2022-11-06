@@ -9,3 +9,5 @@
 	name = k12ish
 [core]
 	editor = nvim
+[diff "pdfdiff"]
+	command = diffpdf
