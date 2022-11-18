@@ -5,5 +5,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias rg='rg -i'
+
+# -S, --smart-case                             
+# Searches case insensitively if input pattern is all lowercase
+alias rg='rg -S'
 
