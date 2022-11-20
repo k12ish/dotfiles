@@ -42,11 +42,12 @@ local config = {
   options = {
     opt = {
       -- set to true or false etc.
-      relativenumber = true, -- sets vim.opt.relativenumber
+      linebreak = true,
       number = true, -- sets vim.opt.number
-      spell = false, -- sets vim.opt.spell
+      relativenumber = true, -- sets vim.opt.relativenumber
       signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
+      spell = false, -- sets vim.opt.spell
+      wrap = true, -- sets vim.opt.wrap
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
