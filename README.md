@@ -17,9 +17,10 @@ Install these through `cargo` or maybe AUR
 
 Misc:
 
-- `nvim` along with the `AstroNvim` repository
-- `xclip`
 - `diffpdf`
+- `nvim` along with the `AstroNvim` repository
+- `syncthing`
+- `xclip`
 
 Commands 
 ```
