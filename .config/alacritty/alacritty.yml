@@ -23,7 +23,7 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. Both lines and columns
@@ -81,8 +81,8 @@
   #   - SimpleFullscreen
   #startup_mode: Windowed
 
-  # Window title
-  #title: Alacritty
+  # Window title, default value "Alacritty"
+  title: ""
 
   # Allow terminal applications to change Alacritty's window title.
   #dynamic_title: true
