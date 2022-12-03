@@ -26,3 +26,11 @@ Commands
 ```
 pip install dateparser
 ```
+
+## Replication
+```sh
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/k12ish/dotfiles.git dotfiles-tmp
+rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ $HOME/
+rm --recursive dotfiles-tmp
+config config status.showUntrackedFiles no
+```
