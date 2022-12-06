@@ -2,7 +2,7 @@
 # This script allows the user to modify their clipboard with neovim
 # Set a keybinding to run this script in a terminal emulator: 
 #
-#     alacritty -e ~/.scripts/nvim-edit-clipboard.sh
+#     alacritty -e /home/krish/.scripts/nvim-edit-clipboard.sh
 
 
 xclip -selection clipboard -o > ~/.scripts/clipboard
