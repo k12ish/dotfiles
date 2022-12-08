@@ -11,3 +11,5 @@ alias l='ls -CF'
 alias rg='rg -S'
 
 export EDITOR=nvim
+
+alias hx='helix'
