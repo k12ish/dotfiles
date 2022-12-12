@@ -1,0 +1,12 @@
+
+theme = "monokai"
+
+
+[editor]
+auto-save = true
+idle-timeout=100
+
+color-modes=true
+
+
+
