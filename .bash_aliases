@@ -10,6 +10,6 @@ alias l='ls -CF'
 # Searches case insensitively if input pattern is all lowercase
 alias rg='rg -S'
 
-export EDITOR=nvim
+export EDITOR=helix
 
 alias hx='helix'

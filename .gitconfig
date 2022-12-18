@@ -22,7 +22,6 @@
 	name = k12ish
 
 [core]
-	editor = nvim
 	pager = delta
 
 [diff "pdfdiff"]
