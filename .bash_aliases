@@ -5,6 +5,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias mank='man -k'
 
 # -S, --smart-case                             
 # Searches case insensitively if input pattern is all lowercase
