@@ -21,6 +21,9 @@ neofetch neovim  ntfs-3g obsidian python ripgrep rsync rustup syncthing \
 tealdeer tokei watchexec xclip zoxide
 ```
 
+- maybe you'll also need [`power-profiles-daemon`](https://www.reddit.com/r/archlinux/comments/s364zv/power_profiles_missing_from_gnome_settings_after/)
+
+
 3. Install:
 
 ```sh
@@ -33,6 +36,18 @@ config config status.showUntrackedFiles no
 
 4. Get `git` credentials sorted, in order to push config changes:
 
-```
+```sh
 gh auth login
 ```
+
+5. You'll probably want to install `paru` as well
+
+```sh
+rustup default stable
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+```
+
+
