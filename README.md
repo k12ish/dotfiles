@@ -15,14 +15,23 @@ Misc:
 2. Inspect and install this list of packages
 
 ```sh
-$ sudo pacman -S alacritty bash-completion bat bitwarden code dust exa fd \
-firefox gimp git git-delta github-cli helix ipython julia just lshw mpv \
-neofetch neovim  ntfs-3g obsidian python ripgrep rsync rustup syncthing \
-tealdeer tokei watchexec xclip zoxide
-```
+# applications, typically with GUI
+sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian syncthing
+
+# developer tools
+sudo pacman -Syu helix neovim
+sudo pacman -Syu bash-completion bat dust exa fd git git-delta github-cli just \
+ripgrep rsync tealdeer tokei watchexec zoxide
+
+# languages and language servers
+sudo pacman -Syu ipython julia python rustup python-lsp-server
+rustup install rust-analyzer
+
+# misc stuff
+sudo pacman -Syu lshw ntfs-3g xclip neofetch
+ ```
 
 - maybe you'll also need [`power-profiles-daemon`](https://www.reddit.com/r/archlinux/comments/s364zv/power_profiles_missing_from_gnome_settings_after/)
-
 
 3. Install:
 
