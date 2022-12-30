@@ -4,6 +4,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ls='ls --color=auto'
 
 alias mank='man -k'
 
@@ -12,5 +13,13 @@ alias mank='man -k'
 alias rg='rg -S'
 
 export EDITOR=helix
-
 alias hx='helix'
+
+
+iso(){
+	date +"%Y-%m-%d %H:%M"
+}
+
+fcd() { 
+	cd "$(fd -t d $1 | head -n1)" 
+}
