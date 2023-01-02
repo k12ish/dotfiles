@@ -24,7 +24,8 @@ sudo pacman -Syu bash-completion bat dust exa fd git git-delta github-cli just \
 ripgrep rsync tealdeer tokei watchexec zoxide
 
 # languages and language servers
-sudo pacman -Syu ipython julia python rustup python-lsp-server
+sudo pacman -Syu ipython python python-{lsp-server,pre-commit,pytest,virtualenv}
+sudo pacman -Syu julia rustup bacon
 rustup install rust-analyzer
 
 # misc stuff
