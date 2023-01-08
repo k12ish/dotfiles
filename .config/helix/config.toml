@@ -7,3 +7,8 @@ idle-timeout=100
 
 color-modes=true
 
+[keys.normal]
+G = "goto_file_end"
+
+[keys.normal.g]
+q = ":reflow"
