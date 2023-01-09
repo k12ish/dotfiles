@@ -2,3 +2,9 @@
 name = "rust"
 language-server = { command = "rustup", args = ["run", "stable", "rust-analyzer"] }
 
+
+[[language]]
+name = "python"
+roots = ["pyproject.toml"]
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+config = {} # <- this is the important line
