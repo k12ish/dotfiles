@@ -12,6 +12,8 @@ alias mank='man -k'
 # Searches case insensitively if input pattern is all lowercase
 alias rg='rg -S'
 
+alias b='xdg-open'
+
 export EDITOR=helix
 alias hx='helix'
 
