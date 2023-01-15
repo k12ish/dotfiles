@@ -21,7 +21,7 @@ sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian syncthing
 # developer tools
 sudo pacman -Syu helix neovim
 sudo pacman -Syu bash-completion bat dust exa fd git git-delta github-cli just \
-ripgrep rsync tealdeer tokei watchexec zoxide
+ripgrep ripgrep-all rsync tealdeer tokei watchexec zoxide
 
 # languages and language servers
 sudo pacman -Syu ipython python python-{black,pre-commit,pytest,virtualenv} pyright
