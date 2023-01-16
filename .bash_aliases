@@ -12,7 +12,14 @@ alias mank='man -k'
 # Searches case insensitively if input pattern is all lowercase
 alias rg='rg -S'
 
-alias b='xdg-open'
+if grep -qi microsoft /proc/version; then
+    # WSL
+	alias b='explorer.exe'
+else
+    # native Linux
+	alias b='xdg-open'
+fi
+
 
 export EDITOR=helix
 alias hx='helix'
