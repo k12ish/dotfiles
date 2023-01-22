@@ -50,4 +50,8 @@ cd paru
 makepkg -si
 ```
 
+6. AUR Packages of interest
 
+```sh
+paru -S anki edir mathpix-snipping-tool mpv_inhibit_gnome video-downloader
+```
