@@ -6,7 +6,7 @@
 
 ```sh
 # applications, typically with GUI
-sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian rhythmbox syncthing
+sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian syncthing
 
 # developer tools
 sudo pacman -Syu helix neovim
