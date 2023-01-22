@@ -1,13 +1,3 @@
-## Requirements
-
-Misc:
-
-- `diffpdf`
-- `nvim` along with the `AstroNvim` repository
-- `syncthing`
-- `xclip`
-
-
 ## Replication
 
 1. Add `ParallelDownloads = 5` in your `/etc/pacman.conf`   
@@ -16,7 +6,7 @@ Misc:
 
 ```sh
 # applications, typically with GUI
-sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian syncthing
+sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian rhythmbox syncthing
 
 # developer tools
 sudo pacman -Syu helix neovim
