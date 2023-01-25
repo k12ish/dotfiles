@@ -24,9 +24,6 @@
 [core]
 	pager = delta
 
-[diff "pdfdiff"]
-	command = diffpdf
-
 [interactive]
 	diffFilter = delta --color-only
 
