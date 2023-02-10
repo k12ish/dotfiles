@@ -32,3 +32,7 @@ iso(){
 fcd() { 
 	cd "$(fd -t d $1 | head -n1)" 
 }
+
+source-venv() { 
+	source ./.venv/bin/activate
+}
