@@ -14,7 +14,7 @@ alias rg='rg -S'
 
 if grep -qi microsoft /proc/version; then
     # WSL
-	alias b='explorer.exe'
+	alias b='wslview'
 else
     # native Linux
 	alias b='xdg-open'

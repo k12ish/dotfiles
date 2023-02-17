@@ -19,11 +19,10 @@ sudo pacman -Syu jupyter-notebook python-{ipywidgets,matplotlib,pandas}
 sudo pacman -Syu julia rustup bacon
 rustup install rust-analyzer
 
-# misc stuff
-sudo pacman -Syu lshw ntfs-3g xclip neofetch
+# misc, hardware/setup specific stuff
+sudo pacman -Syu lshw neofetch ntfs-3g power-profiles-daemon xclip
  ```
-
-- maybe you'll also need [`power-profiles-daemon`](https://www.reddit.com/r/archlinux/comments/s364zv/power_profiles_missing_from_gnome_settings_after/)
+- Consider [`wslu`-tilities](https://wslutiliti.es/wslu/install.html)
 
 3. Install:
 
