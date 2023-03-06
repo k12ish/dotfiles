@@ -12,6 +12,9 @@ alias mank='man -k'
 # Searches case insensitively if input pattern is all lowercase
 alias rg='rg -S'
 
+# Sync and upgrade all packages, ignoring `pyright`
+alias syu='paru --ignore=pyright -Syu'
+
 if grep -qi microsoft /proc/version; then
     # WSL
 	alias b='wslview'
