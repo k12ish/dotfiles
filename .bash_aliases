@@ -8,9 +8,9 @@ alias ls='ls --color=auto'
 
 alias mank='man -k'
 
-# -S, --smart-case                             
-# Searches case insensitively if input pattern is all lowercase
-alias rg='rg -S'
+# -S, --smart-case, Searches case insensitively if input pattern is all lowercase
+# -M, --max-columns, Omit output lines above certain length
+alias rg='rg -S -M1000'
 
 # Sync and upgrade all packages, ignoring `pyright`
 alias syu='paru --ignore=pyright -Syu'
