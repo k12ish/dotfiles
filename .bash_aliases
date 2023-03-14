@@ -12,9 +12,6 @@ alias mank='man -k'
 # -M, --max-columns, Omit output lines above certain length
 alias rg='rg -S -M1000'
 
-# Sync and upgrade all packages, ignoring `pyright`
-alias syu='paru --ignore=pyright -Syu'
-
 if grep -qi microsoft /proc/version; then
     # WSL
 	alias b='wslview'
