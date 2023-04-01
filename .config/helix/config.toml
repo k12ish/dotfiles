@@ -4,8 +4,12 @@ theme = "monokai"
 [editor]
 auto-save = true
 idle-timeout=100
-
 color-modes=true
+
+[editor.soft-wrap]
+enable = true
+max-indent-retain = 0
+
 
 [keys.normal]
 G = "goto_file_end"
