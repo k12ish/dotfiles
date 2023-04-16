@@ -20,7 +20,7 @@ sudo pacman -Syu julia rustup bacon
 rustup install rust-analyzer
 
 # misc, hardware/setup specific stuff
-sudo pacman -Syu lshw neofetch ntfs-3g power-profiles-daemon xclip
+sudo pacman -Syu lshw neofetch ntfs-3g power-profiles-daemon xclip xf86-input-wacom
  ```
 - Consider [`wslu`-tilities](https://wslutiliti.es/wslu/install.html)
 
@@ -55,3 +55,10 @@ makepkg -si
 ```sh
 paru -S anki edir mathpix-snipping-tool mpv_inhibit_gnome pika-backup video-downloader
 ```
+
+7. Misc
+
+Automatic daylight saving time (GUI instructions for GNOME):
+
+1. Settings -> Location Services ON
+2. Settings -> Date & Time -> Automatic Time Zone ON
