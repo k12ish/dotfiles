@@ -24,7 +24,7 @@ sudo pacman -Syu lshw neofetch ntfs-3g power-profiles-daemon xclip xf86-input-wa
  ```
 - Consider [`wslu`-tilities](https://wslutiliti.es/wslu/install.html)
 
-3. Install:
+3. Install dotfiles:
 
 ```sh
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/k12ish/dotfiles.git dotfiles-tmp
@@ -56,9 +56,27 @@ makepkg -si
 paru -S anki edir mathpix-snipping-tool mpv_inhibit_gnome pika-backup video-downloader
 ```
 
-7. Misc
+7. Pacman Hooks
 
-Automatic daylight saving time (GUI instructions for GNOME):
+Run `sudo mkdir -p /etc/pacman.d/hooks/`, and create the file `/etc/pacman.d/hooks/clean_cache.hook`:
+
+```ini
+[Trigger]
+Operation = Remove
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Keep the last cache and the currently installed; clear cache for unused packages
+When = PostTransaction
+Exec = /usr/bin/paccache -rvuk0 && /usr/bin/paccache -rvk2
+```
+
+8. Misc
+
+### Automatic daylight saving time (GUI instructions for GNOME):
 
 1. Settings -> Location Services ON
 2. Settings -> Date & Time -> Automatic Time Zone ON
