@@ -20,7 +20,7 @@ sudo pacman -Syu julia rustup bacon
 rustup install rust-analyzer
 
 # misc, hardware/setup specific stuff
-sudo pacman -Syu lshw neofetch ntfs-3g power-profiles-daemon xclip xf86-input-wacom
+sudo pacman -Syu lshw neofetch ntfs-3g pacman-contrib power-profiles-daemon xclip xf86-input-wacom
  ```
 - Consider [`wslu`-tilities](https://wslutiliti.es/wslu/install.html)
 
