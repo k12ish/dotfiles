@@ -53,7 +53,7 @@ makepkg -si
 6. AUR Packages of interest
 
 ```sh
-paru -S anki edir mathpix-snipping-tool mpv_inhibit_gnome pika-backup video-downloader
+paru -S anki as-tree edir mathpix-snipping-tool mpv_inhibit_gnome pika-backup video-downloader
 ```
 
 7. Pacman Hooks
