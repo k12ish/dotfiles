@@ -1,3 +1,21 @@
+# Krish's Dotfiles
+
+This repository contains most of my home directory setup, documented for my own ease of replication.
+I may occasionally rewrite history of this repository and force push.
+
+## How it's used
+
+
+I manage my dotfiles with `git` through the [bare repository and alias](https://wiki.archlinux.org/title/Dotfiles#:~:text=bare%20repository%20and%20alias%20method) method:
+
+```bash
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+```
+
+This method avoids symlinks and confusions that arise with git directories that reside inside the `$HOME` directory.
+
+
+
 ## Replication
 
 1. Add `ParallelDownloads = 5` in your `/etc/pacman.conf`   
