@@ -36,3 +36,10 @@ fcd() {
 source-venv() { 
 	source ./.venv/bin/activate
 }
+
+
+# See `bash-complete-alias` on AUR
+if [[ -r /usr/share/bash-complete-alias/complete_alias ]]; then
+	source /usr/share/bash-complete-alias/complete_alias
+	complete -F _complete_alias config
+fi

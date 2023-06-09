@@ -1,15 +1,15 @@
-[alias]
-  psuh = push
-  puhs = push
-  upsh = push
-  pul = pull
-  pulll = pull
-  cmmit = commit
-  comit = commit
-  committ = commit
-  commti = commit
-  stauts = status
-  statsu = status
+# [alias]
+#   psuh = push
+#   puhs = push
+#   upsh = push
+#   pul = pull
+#   pulll = pull
+#   cmmit = commit
+#   comit = commit
+#   committ = commit
+#   commti = commit
+#   stauts = status
+#   statsu = status
 
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
