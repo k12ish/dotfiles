@@ -12,3 +12,8 @@ eval "$(starship init bash)"
 
 # depends on fortune-mod, cowsay and lolcat
 fortune -s | cowthink | lolcat
+
+
+
+# broot
+source /home/krish/.config/broot/launcher/bash/br
