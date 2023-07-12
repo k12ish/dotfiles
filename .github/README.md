@@ -35,7 +35,8 @@ just openssh ripgrep ripgrep-all rsync tealdeer tokei watchexec zoxide
 sudo pacman -Syu ipython python python-{black,pre-commit,pytest,virtualenv} pyright
 sudo pacman -Syu jupyter-notebook python-{ipywidgets,matplotlib,pandas}
 sudo pacman -Syu julia rustup bacon
-rustup install rust-analyzer
+rustup default stable
+rustup component add rust-analyzer
 
 # misc, hardware/setup specific stuff
 sudo pacman -Syu lshw neofetch ntfs-3g pacman-contrib power-profiles-daemon reflector xclip xf86-input-wacom
