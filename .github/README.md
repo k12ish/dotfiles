@@ -94,6 +94,13 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rvuk0 && /usr/bin/paccache -rvk2
 ```
 
+### KDE:
+
+Install 
+```sh
+pacman -Syu kdeconnect xdg-desktop-portal
+```
+
 ### GNOME:
 
 Automatic daylight saving time:
