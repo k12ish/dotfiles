@@ -18,7 +18,7 @@ This method avoids symlinks and confusions that arise with git directories that 
 
 ## Replication
 
-1. Add `ParallelDownloads = 5` in your `/etc/pacman.conf`   
+1. Add `ParallelDownloads = 5` in your `/etc/pacman.conf`
 
 2. Inspect and install this list of packages
 
@@ -38,10 +38,11 @@ sudo pacman -Syu julia rustup bacon
 rustup default stable
 rustup component add rust-analyzer
 
+sudo pacman -Syu starship fortune-mod cowsay lolcat
+
 # misc, hardware/setup specific stuff
-sudo pacman -Syu lshw neofetch ntfs-3g pacman-contrib power-profiles-daemon reflector xclip xf86-input-wacom
+sudo pacman -Syu lshw neofetch ntfs-3g pacman-contrib reflector xclip xf86-input-wacom
  ```
-- Consider [`wslu`-tilities](https://wslutiliti.es/wslu/install.html)
 
 3. Install dotfiles:
 
@@ -72,7 +73,7 @@ makepkg -si
 6. AUR Packages of interest
 
 ```sh
-paru -S anki as-tree bash-complete-alias edir mathpix-snipping-tool mpv_inhibit_gnome pika-backup video-downloader
+paru -S anki as-tree bash-complete-alias edir mathpix-snipping-tool pika-backup video-downloader
 ```
 
 7. Pacman Hooks
@@ -93,9 +94,18 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rvuk0 && /usr/bin/paccache -rvk2
 ```
 
-8. Misc
+### GNOME:
 
-### Automatic daylight saving time (GUI instructions for GNOME):
+Automatic daylight saving time:
 
 1. Settings -> Location Services ON
 2. Settings -> Date & Time -> Automatic Time Zone ON
+
+```sh
+pacman -Syu power-profiles-daemon
+paru -S mpv_inhibit_gnome
+```
+
+### WSL
+
+- Consider [`wslu`-tilities](https://wslutiliti.es/wslu/install.html) 
