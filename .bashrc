@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+export ANSIBLE_NOCOWS=1
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

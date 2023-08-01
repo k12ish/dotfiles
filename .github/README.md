@@ -34,7 +34,7 @@ openssh ripgrep ripgrep-all rsync tealdeer tokei watchexec zoxide
 # languages and language servers
 sudo pacman -Syu ipython python python-{black,pre-commit,pytest,virtualenv} pyright
 sudo pacman -Syu jupyter-notebook python-{ipywidgets,matplotlib,pandas}
-sudo pacman -Syu julia rustup bacon vscode-json-languageserver
+sudo pacman -Syu ansible bacon julia rustup vscode-json-languageserver yaml-language-server
 rustup default stable
 rustup component add rust-analyzer
 
