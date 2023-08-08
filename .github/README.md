@@ -41,7 +41,7 @@ rustup component add rust-analyzer
 sudo pacman -Syu starship fortune-mod cowsay lolcat
 
 # misc, hardware/setup specific stuff
-sudo pacman -Syu lshw neofetch ntfs-3g pacman-contrib reflector xclip xf86-input-wacom
+sudo pacman -Syu lshw neofetch ntfs-3g pacman-contrib power-profiles-daemon reflector xclip xf86-input-wacom
  ```
 
 3. Install dotfiles:
@@ -98,7 +98,7 @@ Exec = /usr/bin/paccache -rvuk0 && /usr/bin/paccache -rvk2
 
 Install 
 ```sh
-pacman -Syu kdeconnect xdg-desktop-portal
+pacman -Syu kdeconnect xdg-desktop-portal gnome-disk-utility
 ```
 
 ### GNOME:
@@ -109,7 +109,6 @@ Automatic daylight saving time:
 2. Settings -> Date & Time -> Automatic Time Zone ON
 
 ```sh
-pacman -Syu power-profiles-daemon
 paru -S mpv_inhibit_gnome
 ```
 
