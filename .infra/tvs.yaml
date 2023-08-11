@@ -1,0 +1,77 @@
+- name: TV setup
+  hosts: tvs
+  become: true
+  tasks:
+
+   - name: Install fundamental CLI tools
+     import_tasks: includes/arch-cli-fundamentals.yaml
+
+   - name: Install KDE connect and allow mouse control
+     community.general.pacman:
+       name:
+        - kdeconnect
+        - xdg-desktop-portal
+
+   - name: Install HDMI Audio profile
+     community.general.pacman:
+       name:
+        - pavucontrol
+
+  # see https://linuxconfig.org/linux-kde4-user-auto-login-command-line-version
+   - name: Configure login as guest on boot
+     copy:
+       dest: "/etc/sddm.conf"
+       content: |
+         [Autologin]
+         User=guest
+         Session=plasma.desktop
+
+  # see https://wiki.archlinux.org/title/Power_management#Disabling_suspend
+   - name: Disable Suspend and Hibernation
+     copy:
+       dest: "/etc/systemd/sleep.conf.d/disable-suspend.conf"
+       content: |
+         [Sleep]
+         AllowSuspend=no
+         AllowHibernation=no
+         AllowSuspendThenHibernate=no
+         AllowHybridSleep=no
+
+   # see https://wiki.archlinux.org/title/LightDM#Enabling_interactive_passwordless_login
+   - name: Setup "SSDM" to succeed auth for `nopasswdlogin` group
+     copy:
+       dest: "/etc/pam.d/sddm"
+       content: |
+         #%PAM-1.0
+         
+         auth        sufficient  pam_succeed_if.so user ingroup nopasswdlogin
+         auth        include     system-login
+         -auth       optional    pam_gnome_keyring.so
+         -auth       optional    pam_kwallet5.so
+
+         account     include     system-login
+
+         password    include     system-login
+         -password   optional    pam_gnome_keyring.so    use_authtok
+
+         session     optional    pam_keyinit.so          force revoke
+         session     include     system-login
+         -session    optional    pam_gnome_keyring.so    auto_start
+         -session    optional    pam_kwallet5.so         auto_start
+
+   - name: Ensure group "nopasswdlogin" exists
+     group:
+       name: nopasswdlogin
+       state: present
+
+   - name: Add guest user to `nopasswdlogin` group
+     ansible.builtin.user:
+       name: guest
+       groups: nopasswdlogin
+       append: yes
+
+   - name: Restart syncthing service
+     ansible.builtin.service:
+       enabled: true
+       name: syncthing@krish
+       state: restarted

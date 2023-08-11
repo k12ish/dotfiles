@@ -1,0 +1,21 @@
+   - name: Install fundamental CLI tools
+     community.general.pacman:
+       name:
+        - git
+        - openssh
+        - rsync
+        - bash-completion
+
+        - bat
+        - dust
+        - exa
+        - fd
+        - git-delta
+        - github-cli
+        - helix
+        - ripgrep
+        - ripgrep-all
+        - tealdeer
+        - tokei
+        - watchexec
+        - zoxide

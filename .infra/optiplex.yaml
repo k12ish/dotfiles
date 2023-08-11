@@ -1,0 +1,7 @@
+- name: TV setup
+  hosts: localhost
+  become: true
+  tasks:
+
+   - name: Install fundamental CLI tools
+     import_tasks: includes/arch-cli-fundamentals.yaml
