@@ -4,4 +4,4 @@
   tasks:
 
    - name: Install fundamental CLI tools
-     import_tasks: includes/arch-cli-fundamentals.yaml
+     import_tasks: includes/arch-fundamentals.yaml
