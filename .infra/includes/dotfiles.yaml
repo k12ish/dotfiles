@@ -1,0 +1,25 @@
+# https://news.ycombinator.com/item?id=11071754
+# 
+# git clone --separate-git-dir=$HOME/.dotfiles /path/to/repo $HOME/.dotfiles-tmp
+# cp ~/.dotfiles-tmp/.gitmodules ~  # If you use Git submodules
+# rm -r ~/dotfiles-tmp/
+# alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+- name: WSL laptop setup
+  hosts: localhost
+  become: true
+  become_user: krish
+
+  tasks:
+
+    - name: Clone config Repo
+      ansible.builtin.git:
+        repo: https://github.com/k12ish/dotfiles.git
+        separate_git_dir: ~/.dotfiles/
+        dest: ~/.dotfiles-repo-del/
+  
+    - name: Remove Temporary Git Repo
+      ansible.builtin.file:
+        path: ~/.dotfiles-repo-del/
+        state: absent
+

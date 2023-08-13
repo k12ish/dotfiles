@@ -5,3 +5,6 @@
 
    - name: Install fundamental CLI tools
      import_tasks: includes/arch-fundamentals.yaml
+
+- name: Setup Config
+  import_playbook: includes/dotfiles.yaml
