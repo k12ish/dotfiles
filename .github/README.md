@@ -24,7 +24,7 @@ This method avoids symlinks and confusions that arise with git directories that 
 
 ```sh
 # applications, typically with GUI
-sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian syncthing
+sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian syncthing deluge-gtk rhythmbox
 
 # developer tools
 sudo pacman -Syu helix neovim
