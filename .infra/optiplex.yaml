@@ -1,4 +1,4 @@
-- name: TV setup
+- name: OptiPlex setup
   hosts: localhost
   become: true
   tasks:

@@ -1,4 +1,4 @@
-- name: TV setup
+- name: WSL laptop setup
   hosts: localhost
   become: true
   tasks:

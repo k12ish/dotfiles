@@ -25,6 +25,9 @@
     # paccache dependents
     - pacman-contrib
 
+    # misc
+    - ansible
+
 - name: Setup Paccache Hooks
   copy:
     dest: "/etc/pacman.d/hooks/clean_cache.hook"
