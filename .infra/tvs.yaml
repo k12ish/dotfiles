@@ -6,6 +6,9 @@
    - name: Install fundamental CLI tools
      import_tasks: includes/arch-fundamentals.yaml
 
+   - name: Install fundamental Applications
+     import_tasks: includes/arch-applications.yaml
+
    - name: Install KDE connect and allow mouse control
      community.general.pacman:
        name:

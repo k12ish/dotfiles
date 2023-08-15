@@ -1,0 +1,7 @@
+- name: Install fundamental Applications
+  community.general.pacman:
+   name:
+    - firefox
+    - mpv
+    - mpv-mpris # needed for controlling MPV from status bar / kde-connect
+    - rhythmbox

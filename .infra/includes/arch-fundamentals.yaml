@@ -10,6 +10,7 @@
     # CLI tools
     - bat
     - dust
+    - edir
     - exa
     - fd
     - git-delta
@@ -27,6 +28,7 @@
 
     # misc
     - ansible
+    - syncthing
 
 - name: Setup Paccache Hooks
   copy:
