@@ -1,9 +1,13 @@
 # https://news.ycombinator.com/item?id=11071754
+# Tries to replace these commands:
 # 
-# git clone --separate-git-dir=$HOME/.dotfiles /path/to/repo $HOME/.dotfiles-tmp
-# cp ~/.dotfiles-tmp/.gitmodules ~  # If you use Git submodules
-# rm -r ~/dotfiles-tmp/
-# alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#     git clone --separate-git-dir=$HOME/.dotfiles /path/to/repo $HOME/.dotfiles-tmp
+#     cp ~/.dotfiles-tmp/.gitmodules ~  # If you use Git submodules
+#     rm -r ~/dotfiles-tmp/
+#     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#
+# WARNING: not idemptotent, will cause errors: see github issue
+#   https://github.com/ansible/ansible/issues/52026
 
 - name: WSL laptop setup
   hosts: localhost
