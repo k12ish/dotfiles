@@ -1,3 +1,12 @@
+- name: Set ParalellDownloads 5
+  lineinfile:
+    path: "/etc/pacman.conf"
+    regex: "^(#)?{{item.key}}"
+    line: "{{item.key}} = {{item.value}}"
+    state: present
+  loop:
+    - { key: "ParallelDownloads", value: "5" } 
+
 - name: Install fundamental CLI tools
   community.general.pacman:
    name:
@@ -10,7 +19,6 @@
     # CLI tools
     - bat
     - dust
-    - edir
     - exa
     - fd
     - git-delta
@@ -30,6 +38,15 @@
     - ansible
     - syncthing
 
+- name: Ensure various system configuration dirs exist
+  become: true
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+  loop:
+    - { dir: "/etc/sddm.conf.d"} 
+    - { dir: "/etc/pacman.d/hooks"} 
+
 - name: Setup Paccache Hooks
   copy:
     dest: "/etc/pacman.d/hooks/clean_cache.hook"
@@ -47,4 +64,29 @@
       Description = Keep the last cache and the currently installed; clear cache for unused packages
       When = PostTransaction
       Exec = /usr/bin/paccache -rvuk0 && /usr/bin/paccache -rvk2
+
+- name: Create the `aur_builder` user
+  become: yes
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    mode: 0644
+    validate: 'visudo -cf %s'
+
+- name: Install misc AUR CLI utilities which do not depend on Rust
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - bash-complete-alias
+      - edir
+      - helixbinhx
 
