@@ -10,7 +10,11 @@ export ANSIBLE_NOCOWS=1
 . ~/.bash_aliases
 
 eval "$(zoxide init bash)"
-eval "$(starship init bash)"
 
-# depends on fortune-mod, cowsay and lolcat
-fortune -s | cowthink | lolcat
+
+if [ "$HOSTNAME" = optiplex ]; then
+  # depends on fortune-mod, cowsay and lolcat
+  eval "$(starship init bash)"
+  fortune -s | cowthink | lolcat
+fi
+

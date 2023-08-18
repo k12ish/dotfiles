@@ -1,0 +1,14 @@
+- name: Install KDE GUI applications
+  community.general.pacman:
+   name:
+    - firefox
+    - gnome-disk-utility
+    - rhythmbox
+
+    # Install MPV and enable MPRIS kdeconnect control
+    - mpv
+    - mpv-mpris 
+
+    # Install KDE connect and allow mouse control
+    - kdeconnect
+    - xdg-desktop-portal

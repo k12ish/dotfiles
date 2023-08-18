@@ -39,7 +39,6 @@
     - syncthing
 
 - name: Ensure various system configuration dirs exist
-  become: true
   file:
     path: "{{ item.dir }}"
     state: directory
@@ -66,14 +65,21 @@
       Exec = /usr/bin/paccache -rvuk0 && /usr/bin/paccache -rvk2
 
 - name: Create the `aur_builder` user
-  become: yes
   ansible.builtin.user:
     name: aur_builder
     create_home: yes
     group: wheel
 
+- name: Hide `aur_builder` user from `sddm` menus
+  copy:
+    dest: "/etc/sddm.conf.d/hide-aur-builder-user.conf"
+    owner: root
+    group: root
+    content: |
+      [Users]
+      HideUsers=aur_builder
+
 - name: Allow the `aur_builder` user to run `sudo pacman` without a password
-  become: yes
   ansible.builtin.lineinfile:
     path: /etc/sudoers.d/11-install-aur_builder
     line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
@@ -81,11 +87,11 @@
     mode: 0644
     validate: 'visudo -cf %s'
 
-- name: Install misc AUR CLI utilities which do not depend on Rust
-  become: yes
+- name: Install misc AUR CLI utilities
   become_user: aur_builder
   kewlfft.aur.aur:
     name:
+      - paru-bin
       - bash-complete-alias
       - edir
       - helixbinhx

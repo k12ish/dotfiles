@@ -1,29 +1,11 @@
-# https://news.ycombinator.com/item?id=11071754
-# Tries to replace these commands:
-# 
-#     git clone --separate-git-dir=$HOME/.dotfiles /path/to/repo $HOME/.dotfiles-tmp
-#     cp ~/.dotfiles-tmp/.gitmodules ~  # If you use Git submodules
-#     rm -r ~/dotfiles-tmp/
-#     alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-#
-# WARNING: not idemptotent, will cause errors: see github issue
-#   https://github.com/ansible/ansible/issues/52026
-
-- name: WSL laptop setup
-  hosts: localhost
-  become: true
+- name: Create dotfiles
   become_user: krish
+  shell: >
+    git clone --separate-git-dir=/home/krish/.dotfiles https://github.com/k12ish/dotfiles.git dotfiles-tmp && 
+    rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ /home/krish &&
+    rm --recursive /home/krish/dotfiles-tmp &&
+    source .bash_aliases &&
+    config config status.showUntrackedFiles no
 
-  tasks:
-
-    - name: Clone config Repo
-      ansible.builtin.git:
-        repo: https://github.com/k12ish/dotfiles.git
-        separate_git_dir: ~/.dotfiles/
-        dest: ~/.dotfiles-repo-del/
-  
-    - name: Remove Temporary Git Repo
-      ansible.builtin.file:
-        path: ~/.dotfiles-repo-del/
-        state: absent
-
+  args:
+    creates: /home/krish/.dotfiles

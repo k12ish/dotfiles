@@ -1,27 +1,31 @@
 - name: TV setup
+  become: true
   hosts: tvs
   tasks:
 
    - name: Install fundamental CLI tools
      import_tasks: includes/arch-fundamentals.yaml
 
-   - name: Install fundamental Applications
-     import_tasks: includes/arch-applications.yaml
+   - name: Install Krish's dotfiles
+     import_tasks: includes/dotfiles.yaml
 
-   - name: Install KDE connect and allow mouse control
-     community.general.pacman:
-       name:
-        - kdeconnect
-        - xdg-desktop-portal
+   - name: Install Basic KDE Applications
+     import_tasks: includes/arch-kde-minimal.yaml
 
    - name: Install HDMI Audio profile
      community.general.pacman:
        name:
         - pavucontrol
 
+   - name: Install Waydroid and deps
+     become_user: aur_builder
+     kewlfft.aur.aur:
+       name:
+         - binder_linux-dkms
+         - waydroid
+
   # see https://linuxconfig.org/linux-kde4-user-auto-login-command-line-version
    - name: Configure login as guest on boot
-     become: true
      copy:
        dest: "/etc/sddm.conf.d/guest-user-autologin.conf"
        content: |
@@ -31,7 +35,6 @@
 
   # see https://wiki.archlinux.org/title/Power_management#Disabling_suspend
    - name: Disable Suspend and Hibernation
-     become: true
      copy:
        dest: "/etc/systemd/sleep.conf.d/disable-suspend.conf"
        content: |
@@ -43,7 +46,6 @@
 
    # see https://wiki.archlinux.org/title/LightDM#Enabling_interactive_passwordless_login
    - name: Setup "SSDM" to succeed auth for `nopasswdlogin` group
-     become: true
      copy:
        dest: "/etc/pam.d/sddm"
        content: |
@@ -76,7 +78,6 @@
        append: yes
 
    - name: Restart syncthing service
-     become: true
      ansible.builtin.service:
        enabled: true
        name: syncthing@krish
