@@ -30,13 +30,16 @@ sudo pacman -Syu alacritty bitwarden code firefox gimp mpv obsidian syncthing de
 sudo pacman -Syu helix neovim
 sudo pacman -Syu bash-completion bat dust exa fd git git-delta github-cli just \
 openssh ripgrep ripgrep-all rsync tealdeer tokei watchexec zoxide
+paru helixbinhx
 
 # languages and language servers
 sudo pacman -Syu ipython python python-{black,pre-commit,pytest,virtualenv} pyright
 sudo pacman -Syu jupyter-notebook python-{ipywidgets,matplotlib,pandas}
-sudo pacman -Syu ansible bacon julia rustup vscode-json-languageserver yaml-language-server
+sudo pacman -Syu ansible bacon julia rustup 
+sudo pacman -Syu vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver vscode-markdown-languageserver yaml-language-server
 rustup default stable
 rustup component add rust-analyzer
+
 
 sudo pacman -Syu starship fortune-mod cowsay lolcat
 
