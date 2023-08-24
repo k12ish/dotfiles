@@ -6,3 +6,20 @@
    - name: Install fundamental CLI tools
      import_tasks: includes/arch-fundamentals.yaml
 
+   - name: Install Krish's dotfiles
+     import_tasks: includes/dotfiles.yaml
+
+   - name: Install Software Toolchains
+     import_tasks: includes/generic-programming.yaml
+
+   - name: Install WSLU (see https://wslutiliti.es/wslu/install.html)
+     community.general.pacman:
+      name:
+       - wslu
+
+   - name: Install Applications
+     community.general.pacman:
+      name:
+       - syncthing
+
+

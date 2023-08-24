@@ -9,11 +9,29 @@
    - name: Install Basic KDE Applications
      import_tasks: includes/arch-kde-minimal.yaml
 
-   - name: Install Packages
+   - name: Install Krish's dotfiles
+     import_tasks: includes/dotfiles.yaml
+
+   - name: Install Software Toolchains
+     import_tasks: includes/generic-programming.yaml
+
+   - name: Install Applications
      community.general.pacman:
-      # bashrc eyecandy
       name:
-       - starship
-       - fortune-mod
-       - cowsay
-       - lolcat
+       - alacritty
+       - code
+       - deluge-gtk
+       - gimp
+       - obsidian
+       - steam
+       - syncthing
+
+   - name: Install AUR Applications
+     become_user: aur_builder
+     kewlfft.aur.aur:
+       name:
+         - anki
+         # - mathpix-snipping-tool
+         - pika-backup
+         - sioyek-appimage
+         - video-downloader

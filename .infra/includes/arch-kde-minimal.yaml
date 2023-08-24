@@ -5,7 +5,7 @@
     - gnome-disk-utility
     - rhythmbox
 
-    # Install MPV and enable MPRIS kdeconnect control
+    # Install MPV and MPRIS kdeconnect control addon
     - mpv
     - mpv-mpris 
 

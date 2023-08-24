@@ -1,4 +1,4 @@
-- name: Create dotfiles
+- name: Create and configure the dotfiles git repo
   become_user: krish
   shell: >
     git clone --separate-git-dir=/home/krish/.dotfiles https://github.com/k12ish/dotfiles.git dotfiles-tmp && 
@@ -9,3 +9,11 @@
 
   args:
     creates: /home/krish/.dotfiles
+
+- name: Install bashrc eyecandy packages
+  community.general.pacman:
+   name:
+    - starship
+    - fortune-mod
+    - cowsay
+    - lolcat
