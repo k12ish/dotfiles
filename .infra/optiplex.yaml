@@ -26,6 +26,11 @@
        - steam
        - syncthing
 
+   - name: Install Wacom Tablet Support
+     community.general.pacman:
+      name:
+       - xf86-input-wacom
+
    - name: Install AUR Applications
      become_user: aur_builder
      kewlfft.aur.aur:
