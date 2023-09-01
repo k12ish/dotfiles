@@ -15,6 +15,9 @@
    - name: Install Software Toolchains
      import_tasks: includes/generic-programming.yaml
 
+   - name: Install Software Toolchains
+     import_tasks: includes/embedded-development.yaml
+
    - name: Install Applications
      community.general.pacman:
       name:
