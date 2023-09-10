@@ -12,9 +12,12 @@ export ANSIBLE_NOCOWS=1
 eval "$(zoxide init bash)"
 
 
-if [ "$HOSTNAME" = optiplex ]; then
-  # depends on fortune-mod, cowsay and lolcat
-  eval "$(starship init bash)"
-  fortune -s | cowthink | lolcat
-fi
+hosts=("optiplex" "dynabook")
 
+for host in "${hosts[@]}"; do
+  if [[ $host == $HOSTNAME ]]; then
+    # depends on fortune-mod, cowsay and lolcat
+    eval "$(starship init bash)"
+    fortune -s | cowthink | lolcat
+  fi
+done
