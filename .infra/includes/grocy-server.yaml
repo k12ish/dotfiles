@@ -1,0 +1,7 @@
+- name: Install podman & cloudflare
+  community.general.pacman:
+   name:
+    - podman
+    - cloudflared
+
+
