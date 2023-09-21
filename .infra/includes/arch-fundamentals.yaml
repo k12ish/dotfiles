@@ -19,7 +19,7 @@
     # CLI tools
     - bat
     - dust
-    - exa
+    - eza
     - fd
     - git-delta
     - github-cli

@@ -9,7 +9,6 @@
     - python
     - ipython
     - python-black
-    - python-pre-commit
     - python-pytest
     - python-virtualenv
     - pyright
@@ -22,6 +21,7 @@
 
     # misc
     - ansible
+    - pre-commit
     - vscode-json-languageserver
     - yaml-language-server
 
