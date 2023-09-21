@@ -12,3 +12,6 @@
     # Install KDE connect and allow mouse control
     - kdeconnect
     - xdg-desktop-portal
+
+    # eye of gnome for Photos
+    - eog
