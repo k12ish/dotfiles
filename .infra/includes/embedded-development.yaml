@@ -28,6 +28,7 @@
       # STM32F3DISCOVERY - ST-LINK/V2.1
       ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE:="0666"
 
+# TODO refactor to a handler
 - name: udevadm reload rules
   become: true
   shell: udevadm control --reload-rules

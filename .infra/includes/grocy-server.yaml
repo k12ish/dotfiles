@@ -4,4 +4,72 @@
     - podman
     - cloudflared
 
+- name: Create Grocy Directory
+  command: "mkdir -p /home/krish/grocy/mnt"
+  args:
+    creates: /home/krish/grocy/mnt
 
+- name: Setup Grocy Service file
+  copy:
+    dest: "/home/krish/.config/systemd/user/container-grocy.service"
+    content: |
+      [Unit]
+      Description=Podman container-grocy.service
+      Documentation=man:podman-generate-systemd(1)
+      Wants=network-online.target
+      After=network-online.target
+      RequiresMountsFor=%t/containers
+
+      [Service]
+      Environment=PODMAN_SYSTEMD_UNIT=%n
+      Restart=always
+      TimeoutStopSec=70
+      ExecStart=/usr/bin/podman run \
+      	--cidfile=%t/%n.ctr-id \
+      	--cgroups=no-conmon \
+      	--rm \
+      	--sdnotify=conmon \
+      	--replace \
+      	-d \
+      	--name=grocy \
+      	-e PUID=1000 \
+      	-e PGID=1000 \
+      	-e TZ=Etc/UTC \
+      	-p 9283:80 \
+      	-v /home/krish/grocy/mnt:/config lscr.io/linuxserver/grocy:latest
+      ExecStop=/usr/bin/podman stop \
+      	--ignore -t 10 \
+      	--cidfile=%t/%n.ctr-id
+      ExecStopPost=/usr/bin/podman rm \
+      	-f \
+      	--ignore -t 10 \
+      	--cidfile=%t/%n.ctr-id
+      Type=notify
+      NotifyAccess=all
+
+      [Install]
+      WantedBy=default.target
+
+# https://stackoverflow.com/questions/59860849/is-there-a-way-to-reliably-check-that-systemd-supports-user
+- name: "Find uid of user"
+  command: "id -u krish"
+  register: krish_uid
+  check_mode: no # Run even in check mode, otherwise the playbook fails with --check.
+  changed_when: false
+
+- name: Enable and start 'container-grocy' user service
+  become: true
+  become_user: krish
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ krish_uid.stdout }}"
+  systemd:
+    scope: user
+    daemon_reload: yes
+    name: container-grocy.service
+    enabled: yes
+    state: started
+
+- name: Ensure lingering enabled
+  command: "loginctl enable-linger krish"
+  args:
+    creates: /var/lib/systemd/linger/krish
