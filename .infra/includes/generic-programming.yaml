@@ -13,6 +13,9 @@
     - python-virtualenv
     - pyright
 
+    - ruff
+    - ruff-lsp
+
     # Python Data Science
     - jupyter-notebook
     - python-ipywidgets
