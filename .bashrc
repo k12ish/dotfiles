@@ -16,8 +16,13 @@ hosts=("optiplex" "dynabook")
 
 for host in "${hosts[@]}"; do
   if [[ $host == $HOSTNAME ]]; then
-    # depends on fortune-mod, cowsay and lolcat
     eval "$(starship init bash)"
-    fortune -s | cowthink | lolcat
+    # depends on fortune-mod, cowsay and lolcat
+    if [ -z "$(config status -s)" ]; then
+      # empty output for status, we can print something funny
+      fortune -s | cowsay | lolcat
+    else
+      config status | sed 's/([^)]*)//g' | cowsay -f sheep | lolcat
+    fi
   fi
 done
