@@ -1,0 +1,11 @@
+[tool.ruff]
+select = [
+  "E", # Pyflakes `E` and `F` codes enabled by default.
+  "F",
+  "I", # isort sorts imports
+  "N", # pep8-naming for naming conventions
+  "UP", # pyupgrade to upgrade python syntax
+]
+
+# Never enforce `E501` (line length violations).
+ignore = ["E501"]
