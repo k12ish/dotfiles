@@ -5,6 +5,7 @@ select = [
   "I", # isort sorts imports
   "N", # pep8-naming for naming conventions
   "UP", # pyupgrade to upgrade python syntax
+  "SIM", # flake8-simplify simplifies syntax
 ]
 
 # Never enforce `E501` (line length violations).
