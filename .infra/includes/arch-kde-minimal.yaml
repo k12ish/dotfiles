@@ -15,3 +15,6 @@
 
     # eye of gnome for Photos
     - eog
+
+    # `wl-copy` and `wl-paste`
+    - wl-clipboard
