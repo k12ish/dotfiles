@@ -43,3 +43,9 @@ if [[ -r /usr/share/bash-complete-alias/complete_alias ]]; then
 	source /usr/share/bash-complete-alias/complete_alias
 	complete -F _complete_alias config
 fi
+
+# add idf.py and idf_tools.py to PATH
+# https://aur.archlinux.org/packages/esp-idf
+source-idf() {
+	source /opt/esp-idf/export.sh
+}
