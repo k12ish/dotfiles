@@ -9,22 +9,48 @@ import os
 import sys
 from pathlib import Path
 import urllib.request
+from typing import Iterable, Iterator
 
 
-def mathpix_url(file: Path) -> str | None:
+def safe_read(file: Path) -> str | None:
     assert file.exists()
-    if file.stat().st_size > 100_000:
+    if file.stat().st_size > 1_000_000:
         return None
-    text = file.read_text().strip()
+    return file.read_text().strip()
+
+
+def mathpix_url(text: str) -> str | None:
     if text.startswith("![](https://cdn.mathpix.com/") and text.endswith(")"):
         return text[4:-1]
 
 
+def latex_convert(text: str) -> str | None:
+    def interspersed(iterator: Iterator[str], start: str, end: str) -> Iterator[str]:
+        first = next(iterator, None)
+        second = next(iterator, None)
+        while first is not None and second is not None:
+            yield from [first, start, second, end]
+            first = next(iterator, None)
+            second = next(iterator, None)
+        if first is not None:
+            yield first
+
+    split = text.split("$$")
+    text = "".join(interspersed(iter(split), "\\[", "\\]"))
+    split = text.split("$")
+    text = "".join(interspersed(iter(split), "\\(", "\\)"))
+    return text
+
+
 if __name__ == "__main__":
-    file = Path(os.environ["CLIPBOARD_FILE"])
-    if url := mathpix_url(file):
-        os.remove(file)
+    path = Path(os.environ["CLIPBOARD_FILE"])
+    if not (text := safe_read(path)):
+        sys.exit(1)
+    if url := mathpix_url(text):
+        os.remove(path)
         # save to same path
-        urllib.request.urlretrieve(url, file)
+        urllib.request.urlretrieve(url, path)
         sys.exit(0)
+    if converted := latex_convert(text):
+        path.write_text(converted)
     sys.exit(1)
