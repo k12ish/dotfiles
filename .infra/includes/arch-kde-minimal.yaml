@@ -2,8 +2,10 @@
   community.general.pacman:
    name:
     - firefox
-    - gnome-disk-utility
     - rhythmbox
+
+    - gnome-disk-utility # eg. format / partition disks interactively
+    - baobab # eg. view file trees graphically
 
     # Install MPV and MPRIS kdeconnect control addon
     - mpv
