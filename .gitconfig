@@ -28,8 +28,8 @@
 	diffFilter = delta --color-only
 
 [delta]
-	light = false
 	hyperlinks = true
+	dark = true
 
 [merge]
 	conflictstyle = diff3
