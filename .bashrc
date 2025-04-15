@@ -12,7 +12,7 @@ export ANSIBLE_NOCOWS=1
 eval "$(zoxide init bash)"
 
 
-hosts=("optiplex" "dynabook")
+hosts=("optiplex" "dynabook", "framework")
 
 for host in "${hosts[@]}"; do
   if [[ $host == $HOSTNAME ]]; then

@@ -3,9 +3,6 @@
   become: true
   tasks:
 
-   - name: Setup Grocy
-     import_tasks: includes/grocy-server.yaml
-
    - name: Install fundamental CLI tools
      import_tasks: includes/arch-fundamentals.yaml
 
@@ -18,14 +15,14 @@
    - name: Install Software Toolchains
      import_tasks: includes/generic-programming.yaml
 
-   - name: Install Software Toolchains
-     import_tasks: includes/embedded-development.yaml
+   # - name: Install Software Toolchains
+   #   import_tasks: includes/embedded-development.yaml
 
    - name: Install Applications
      community.general.pacman:
       name:
        - alacritty
-       - code
+       # - code
        - deluge-gtk
        - gimp
        - obsidian
@@ -41,7 +38,7 @@
      become_user: aur_builder
      kewlfft.aur.aur:
        name:
-         - anki
+         # - anki
          # - mathpix-snipping-tool
          - pika-backup
          - sioyek-appimage

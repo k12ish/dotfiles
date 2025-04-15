@@ -91,7 +91,7 @@
   become_user: aur_builder
   kewlfft.aur.aur:
     name:
-      - paru-bin
+      # - paru-bin
       - bash-complete-alias
       - edir
       - helixbinhx
