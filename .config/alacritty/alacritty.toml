@@ -2,4 +2,4 @@
 family = "Fira Code Nerd Font"
 
 [window]
-title = ""
+decorations = 'None'
