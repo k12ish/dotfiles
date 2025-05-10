@@ -40,6 +40,7 @@ sudo pacman -Syu vscode-css-languageserver vscode-html-languageserver vscode-jso
 rustup default stable
 rustup component add rust-analyzer
 
+paru markdown-oxide
 
 sudo pacman -Syu starship fortune-mod cowsay lolcat
 
