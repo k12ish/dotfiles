@@ -7,37 +7,6 @@
   loop:
     - { key: "ParallelDownloads", value: "5" } 
 
-- name: Install fundamental CLI tools
-  community.general.pacman:
-   name:
-    # bare essentials
-    - git
-    - openssh
-    - rsync
-    - bash-completion
-
-    # CLI tools
-    - bat
-    - dust
-    - eza
-    - fd
-    - git-delta
-    - github-cli
-    - helix
-    - ripgrep
-    - ripgrep-all
-    - tealdeer
-    - tokei
-    - watchexec
-    - zoxide
-
-    # paccache dependents
-    - pacman-contrib
-
-    # misc
-    - ansible
-    - syncthing
-
 - name: Ensure various system configuration dirs exist
   file:
     path: "{{ item.dir }}"
