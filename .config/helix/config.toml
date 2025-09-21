@@ -10,9 +10,13 @@ color-modes=true
 enable = true
 max-indent-retain = 0
 
+[editor.inline-diagnostics]
+# inline diagnostics for severity >= "error"
+cursor-line = "error"
 
 [keys.normal]
 G = "goto_file_end"
 
 [keys.normal.g]
 q = ":reflow"
+
