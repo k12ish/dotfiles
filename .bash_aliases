@@ -14,10 +14,10 @@ alias rg='rg -S -M1000'
 
 if grep -qi microsoft /proc/version; then
     # WSL
-	alias b='wslview'
+	alias ii='wslview'
 else
     # native Linux
-	alias b='xdg-open'
+	alias ii='xdg-open'
 fi
 
 
