@@ -1,4 +1,8 @@
 [[language]]
+name = "markdown"
+language-servers = ["markdown-oxide", "typos"]
+
+[[language]]
 name = "python"
 auto-format = true
 language-servers = [
@@ -15,3 +19,8 @@ config = {}
 command = "ruff-lsp"
 args = []
 config = {}
+
+[language-server.typos]
+command = "typos-lsp"
+# can render as Error, Warning, Info or Hint.
+config.diagnosticSeverity = "Info"
